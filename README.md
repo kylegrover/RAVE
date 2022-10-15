@@ -1,3 +1,30 @@
+Guide for running on Lambda:
+
+0. Upload this dir and your source audio
+1. install reqs:
+   a. `sudo apt-get update`
+   b. `sudo apt install python3.9`
+   c. `wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh`
+   d. `bash Miniconda3-py39_4.12.0-Linux-x86_64.sh`
+   - yes, yes, yes
+     e. `miniconda3/condabin/conda create -n rave python=3.9`
+   - y
+     g. `conda init && exec bash` (?)
+     f. `conda activate rave`
+2. setup audio
+   a. upload your source audio to '~/inputaudio/'
+   b. `cd ~/`
+   c. `resample --input "inputaudio" --sr 48000 --output "resampled"`
+   2.5?. more reqs??
+   a. A100 setup required?
+   `pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116`
+   ?. maybe i can skip conda entirely?
+   ... trying to bake this into requirements file
+3. train:
+   `python train_rave.py -c default --name special_herbs --wav resampled --preprocessed ~/temp/special_herbs/rave`
+
+### _Original documentation below:_
+
 ![rave_logo](docs/rave.png)
 
 # RAVE: Realtime Audio Variational autoEncoder

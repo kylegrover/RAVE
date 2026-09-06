@@ -21,7 +21,9 @@ Guide for running on Lambda:
    ?. maybe i can skip conda entirely?
    ... trying to bake this into requirements file
 3. train:
-   `python train_rave.py -c default --name special_herbs --wav resampled --preprocessed ~/temp/special_herbs/rave`
+   `python train_rave.py -c default --name $training_name --wav resampled --preprocessed ~/temp/$training_name/rave`
+   - restarting, add:
+     ` --ckpt runs/$training_name/rave/`
 
 ### _Original documentation below:_
 
